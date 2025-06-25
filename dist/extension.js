@@ -7593,10 +7593,10 @@ function GetJSDOC(element) {
     try {
         if (element.jsdoc) {
             let head = ""
-            if (element.data.local)
-                head += "local "
-            if (element.data.static)
-                head += "static "
+            if (element.data && element.data.local)
+                head += "local ";
+            if (element.data && element.data.static)
+                head += "static ";
             let description = element.jsdoc.parsed.description + "\n"
             head += string_of_enum(vscode.SymbolKind, element.kind).toLowerCase() + " " + (element.containerName == "root" ? "" : (element.containerName + ".")) + element.name
             if (element.kind == vscode.SymbolKind.Function || element.kind == vscode.SymbolKind.Class || element.kind == vscode.SymbolKind.Method) {

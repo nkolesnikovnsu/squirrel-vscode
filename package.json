@@ -2,7 +2,7 @@
     "name": "vscode-squirrel-extention",
     "displayName": "Squirrel Language Supports for development",
     "description": "Squirrel Language Supports",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "nikitakolesnikov",
     "icon": "simple_nut.png",
     "license": "MIT",
