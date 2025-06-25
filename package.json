@@ -2,7 +2,7 @@
     "name": "vscode-squirrel",
     "displayName": "Squirrel Language Highlighting",
     "description": "Squirrel Language Highlighting with Go to Definition support",
-    "version": "0.0.14",
+    "version": "0.0.1",
     "publisher": "nikitakolesnikov",
     "icon": "simple_nut.png",
     "engines": {
