@@ -1,64 +1,313 @@
 {
-    "name": "vscode-squirrel",
-    "displayName": "Squirrel Language Highlighting",
-    "description": "Squirrel Language Highlighting with Go to Definition support",
+    "name": "vscode-squirrel-extention",
+    "displayName": "Squirrel Language Supports for development",
+    "description": "Squirrel Language Supports",
     "version": "0.0.1",
     "publisher": "nikitakolesnikov",
     "icon": "simple_nut.png",
+    "license": "MIT",
     "engines": {
-        "vscode": "^1.60.0"
+        "vscode": "^1.80.1"
     },
     "categories": [
         "Programming Languages"
     ],
-    "keywords" : [
-        "electric imp", "electricimp", "imp", "squirrel", "nut"
+    "keywords": [
+        "squirrel"
     ],
-    "main": "./out/extension.js",
     "activationEvents": [
         "onLanguage:squirrel"
     ],
+    "scripts": {
+        "build": "webpack --mode development",
+        "watch": "webpack --mode development --watch",
+        "vscode:prepublish": "npm run package",
+        "package": "webpack --mode production --devtool hidden-source-map"
+    },
+    "main": "./dist/extension.js",
     "contributes": {
-        "languages": [{
-            "id": "squirrel",
-            "aliases": ["Squirrel", "squirrel"],
-            "extensions": ["nut"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "squirrel",
-            "scopeName": "source.nut",
-            "path": "./syntaxes/Squirrel.tmLanguage.json"
-        }],
+        "configurationDefaults": {
+            "[squirrel]": {
+                "editor.tabSize": 4,
+                "editor.insertSpaces": false
+            }
+        },
+        "workspaceSymbolProvider": "true",
+        "documentSymbolProvider": "true",
+        "snippets": [
+            {
+                "language": "squirrel",
+                "path": "./snippets.json"
+            }
+        ],
         "commands": [
             {
-                "command": "squirrel.goToDefinition",
-                "title": "Go to Definition",
-                "category": "Squirrel"
+                "command": "editor.action.commentLine",
+                "title": "Toggle Line Comment"
             }
         ],
         "menus": {
             "editor/context": [
                 {
-                    "when": "editorLangId == squirrel",
-                    "command": "squirrel.goToDefinition",
-                    "group": "navigation"
+                    "command": "editor.action.commentLine",
+                    "when": "resourceLangId == squirrel && editorTextFocus"
                 }
             ]
-        }
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./"
-    },
-    "devDependencies": {
-        "@types/vscode": "^1.60.0",
-        "@types/node": "^16.0.0",
-        "typescript": "^4.5.0"
+        },
+        "capabilities": {
+            "hoverProvider": "true"
+        },
+        "languages": [
+            {
+                "id": "squirrel",
+                "aliases": [
+                    "Squirrel",
+                    "squirrel"
+                ],
+                "extensions": [
+                    ".nut"
+                ],
+                "configuration": "./squirrel.language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "squirrel",
+                "scopeName": "source.squirrel",
+                "path": "./syntaxes/nut.tmLanguage.json"
+            },
+            {
+                "scopeName": "documentation.injection.squirrel",
+                "path": "./syntaxes/jsdoc.squirrel.injection.tmLanguage.json",
+                "injectTo": [
+                    "source.squirrel"
+                ]
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Squirrel Language Supports",
+            "properties": {
+                "vscode-squirrel.OnTypeFormatting": {
+                    "type": "boolean",
+                    "default": true,
+                    "markdownDescription": "`True`: Provides on type formatting in Squirrel files. Need to FormatOnType checked in settings to working",
+                    "scope": "window"
+                },
+                "vscode-squirrel.Completion": {
+                    "type": "boolean",
+                    "default": true,
+                    "markdownDescription": "`True`: Provides autocompletion in Squirrel files",
+                    "scope": "window"
+                },
+                "vscode-squirrel.Hover": {
+                    "type": "boolean",
+                    "default": true,
+                    "markdownDescription": "`True`: Provides Hover in Squirrel files",
+                    "scope": "window"
+                },
+                "vscode-squirrel.SignatureHelp": {
+                    "type": "boolean",
+                    "default": true,
+                    "markdownDescription": "`True`: Provides parameter info in Squirrel files",
+                    "scope": "window"
+                },
+                "vscode-squirrel.TrailingWhitespace": {
+                    "type": "boolean",
+                    "default": true,
+                    "markdownDescription": "`True`: Remove Trailing whitespace on save",
+                    "scope": "window"
+                },
+                "vscode-squirrel.CompletionOther": {
+                    "type": "boolean",
+                    "default": true,
+                    "markdownDescription": "`True`: Show completion from all files",
+                    "scope": "window"
+                },
+                "vscode-squirrel.CompletionOtherShowOnlySubfolders": {
+                    "type": "boolean",
+                    "default": true,
+                    "markdownDescription": "`True`: Shows only items from the document folder and subfolders",
+                    "scope": "window"
+                },
+                "vscode-squirrel.UnreachableCode": {
+                    "type": "boolean",
+                    "default": true,
+                    "markdownDescription": "`True`: Shows unreachable Code warrning",
+                    "scope": "window"
+                },
+                "vscode-squirrel.InlayHints": {
+                    "type": "string",
+                    "default": "disable",
+                    "enum": [
+                        "disable",
+                        "params",
+                        "type",
+                        "both"
+                    ],
+                    "scope": "window"
+                },
+                "vscode-squirrel.FormatterOptions": {
+                    "type": "object",
+                    "order": 2,
+                    "description": "An example numeric object setting.",
+                    "markdownDescription": "Options for formater. Read https://github.com/beautifier/js-beautify?tab=readme-ov-file#options",
+                    "properties": {
+                        "indent_size": {
+                            "type": "integer",
+                            "default": 4
+                        },
+                        "indent_char": {
+                            "type": "string",
+                            "default": " "
+                        },
+                        "indent_with_tabs": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "editorconfig": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "eol": {
+                            "type": "string",
+                            "default": "\\n"
+                        },
+                        "end_with_newline": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "indent_level": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "preserve_newlines": {
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "max_preserve_newlines": {
+                            "type": "integer",
+                            "default": 10
+                        },
+                        "space_in_paren": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "space_in_empty_paren": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "jslint_happy": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "space_after_anon_function": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "space_after_named_function": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "brace_style": {
+                            "type": "string",
+                            "default": "collapse"
+                        },
+                        "unindent_chained_methods": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "break_chained_methods": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "keep_array_indentation": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "unescape_strings": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "wrap_line_length": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "e4x": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "comma_first": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "operator_position": {
+                            "type": "string",
+                            "default": "before-newline"
+                        },
+                        "indent_empty_lines": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "eval_code": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "space_before_conditional": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    },
+                    "additionalProperties": false,
+                    "default": {
+                        "indent_with_tabs": true
+                    }
+                }
+            }
+        },
+        "semanticTokenScopes": [
+            {
+                "language": "squirrel",
+                "scopes": {
+                    "property": [
+                        "variable.other.property.squirrel"
+                    ],
+                    "property.readonly": [
+                        "variable.other.constant.property.squirrel"
+                    ],
+                    "variable": [
+                        "variable.other.readwrite.squirrel"
+                    ],
+                    "variable.readonly": [
+                        "variable.other.constant.object.squirrel"
+                    ],
+                    "function": [
+                        "entity.name.function.squirrel"
+                    ],
+                    "namespace": [
+                        "entity.name.type.module.squirrel"
+                    ],
+                    "variable.defaultLibrary": [
+                        "support.variable.squirrel"
+                    ],
+                    "function.defaultLibrary": [
+                        "support.function.squirrel"
+                    ]
+                }
+            }
+        ]
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/nkolesnikovnsu/squirrel-vscode.git"
+        "url": "https://bitbucket.org/marcinbar91/vscode-squirrel"
+    },
+    "devDependencies": {
+        "webpack": "^5.99.9",
+        "webpack-cli": "^6.0.1"
+    },
+    "dependencies": {
+        "comment-parser": "^1.4.1",
+        "node-loader": "^2.1.0",
+        "typescript": "^5.8.3"
     }
 }

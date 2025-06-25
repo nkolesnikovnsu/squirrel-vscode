@@ -1,0 +1,1734 @@
+{
+    "classes": [
+        {
+            "constructors": [
+                {
+                    "declaration": "string path, string pattern",
+                    "deprecated": null,
+                    "description": "creates a file with read/write access in the current directory. It\u2019s contructor imitates the behaviour of the C runtime function fopen for eg.",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "path",
+                            "type": "string"
+                        },
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "pattern",
+                            "type": "string"
+                        }
+                    ],
+                    "version": "0.0.0"
+                }
+            ],
+            "definition": {
+                "category": "file",
+                "deprecated": null,
+                "description": "creates a file with read/write access in the current directory. It\u2019s contructor imitates the behaviour of the C runtime function fopen for eg.",
+                "extends": null,
+                "name": "file",
+                "notes": [],
+                "side": "shared",
+                "static": false,
+                "version": "0.0.0"
+            },
+            "methods": [
+                {
+                    "declaration": "void close()",
+                    "deprecated": null,
+                    "description": "Closes the file.",
+                    "name": "close",
+                    "notes": [],
+                    "params": [],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void eos()",
+                    "deprecated": null,
+                    "description": "Returns a non null value if the read/write pointer is at the end of the stream.",
+                    "name": "eos",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void flush()",
+                    "deprecated": null,
+                    "description": "Flushes the stream.return a value != null if succeded, otherwise returns null.",
+                    "name": "flush",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void len()",
+                    "deprecated": null,
+                    "description": "Returns the length of the stream",
+                    "name": "len",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void readblob(int size)",
+                    "deprecated": null,
+                    "description": "Read n bytes from the stream and retuns them as blob",
+                    "name": "readblob",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "size",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": {
+                        "description": "",
+                        "type": "bytes"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void readn(int type)",
+                    "deprecated": null,
+                    "description": "Reads a number from the stream according to the type pameter.",
+                    "name": "readn",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "type of the number to read",
+                            "name": "type",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void resize(int size)",
+                    "deprecated": null,
+                    "description": "Resizes the blob to the specified size",
+                    "name": "resize",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "the new size of the blob in bytes",
+                            "name": "size",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void seek(int offset, int origin)",
+                    "deprecated": null,
+                    "description": "Moves the read/write pointer to a specified location.",
+                    "name": "seek",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "the new size of the blob in bytes",
+                            "name": "offset",
+                            "type": "int"
+                        },
+                        {
+                            "default": null,
+                            "description": "the new size of the blob in bytes",
+                            "name": "origin",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "int swap2()",
+                    "deprecated": null,
+                    "description": "Swaps the byte order of the blob content as it would be an array of 16bits integers",
+                    "name": "swap2",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "int swap4()",
+                    "deprecated": null,
+                    "description": "Swaps the byte order of the blob content as it would be an array of 32bits integers",
+                    "name": "swap4",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void tell()",
+                    "deprecated": null,
+                    "description": "Returns the read/write pointer absolute position",
+                    "name": "tell",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "any"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void writeblob(blob src)",
+                    "deprecated": null,
+                    "description": "Moves the read/write pointer to a specified location.",
+                    "name": "writeblob",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "the source blob containing the data to be written",
+                            "name": "src",
+                            "type": "blob"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void writen(int n, int type)",
+                    "deprecated": null,
+                    "description": "Writes a number in the stream formatted according to the type pameter",
+                    "name": "writen",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "the value to be written",
+                            "name": "n",
+                            "type": "int"
+                        },
+                        {
+                            "default": null,
+                            "description": "type of the number to write",
+                            "name": "type",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                }
+            ],
+            "properties": []
+        },
+        {
+            "constructors": [
+                {
+                    "declaration": "string size",
+                    "deprecated": null,
+                    "description": "returns a new instance of a blob class of the specified size in bytes",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "size",
+                            "type": "string"
+                        }
+                    ],
+                    "version": "0.0.0"
+                }
+            ],
+            "definition": {
+                "category": "blob",
+                "deprecated": null,
+                "description": "returns a new instance of a blob class of the specified size in bytes",
+                "extends": null,
+                "name": "blob",
+                "notes": [],
+                "side": "shared",
+                "static": false,
+                "version": "0.0.0"
+            },
+            "methods": [
+                {
+                    "declaration": "int eos()",
+                    "deprecated": null,
+                    "description": "Returns a non null value if the read/write pointer is at the end of the stream.",
+                    "name": "eos",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "int flush()",
+                    "deprecated": null,
+                    "description": "Flushes the stream.return a value != null if succeded, otherwise returns null",
+                    "name": "flush",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "int len()",
+                    "deprecated": null,
+                    "description": "Returns the length of the stream",
+                    "name": "len",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "bytes readblob(int size)",
+                    "deprecated": null,
+                    "description": "read n bytes from the stream and retuns them as blob",
+                    "name": "readblob",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "bytes"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void eos()",
+                    "deprecated": null,
+                    "description": "Returns a non null value if the read/write pointer is at the end of the stream.",
+                    "name": "eos",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void flush()",
+                    "deprecated": null,
+                    "description": "Flushes the stream.return a value != null if succeded, otherwise returns null.",
+                    "name": "flush",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void len()",
+                    "deprecated": null,
+                    "description": "Returns the length of the stream",
+                    "name": "len",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "int"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void readblob(int size)",
+                    "deprecated": null,
+                    "description": "Read n bytes from the stream and retuns them as blob",
+                    "name": "readblob",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "size",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": {
+                        "description": "",
+                        "type": "bytes"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void readn(int type)",
+                    "deprecated": null,
+                    "description": "Reads a number from the stream according to the type pameter.",
+                    "name": "readn",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "type of the number to read",
+                            "name": "type",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void resize(int size)",
+                    "deprecated": null,
+                    "description": "Resizes the blob to the specified size",
+                    "name": "resize",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "the new size of the blob in bytes",
+                            "name": "size",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void seek(int offset, int origin)",
+                    "deprecated": null,
+                    "description": "Moves the read/write pointer to a specified location.",
+                    "name": "seek",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "the new size of the blob in bytes",
+                            "name": "offset",
+                            "type": "int"
+                        },
+                        {
+                            "default": null,
+                            "description": "the new size of the blob in bytes",
+                            "name": "origin",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void tell(int size)",
+                    "deprecated": null,
+                    "description": "Returns the read/write pointer absolute position",
+                    "name": "tell",
+                    "notes": [],
+                    "params": [],
+                    "returns": {
+                        "description": "",
+                        "type": "any"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void writeblob(blob src)",
+                    "deprecated": null,
+                    "description": "Moves the read/write pointer to a specified location.",
+                    "name": "writeblob",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "src",
+                            "type": "blob"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "void writen(int n, int type)",
+                    "deprecated": null,
+                    "description": "Writes a number in the stream formatted according to the type pameter",
+                    "name": "writen",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "the value to be written",
+                            "name": "n",
+                            "type": "int"
+                        },
+                        {
+                            "default": null,
+                            "description": "type of the number to write",
+                            "name": "type",
+                            "type": "int"
+                        }
+                    ],
+                    "returns": null,
+                    "static": false,
+                    "version": "0.0.0"
+                }
+            ],
+            "properties": []
+        },
+        {
+            "constructors": [
+                {
+                    "declaration": "string size",
+                    "deprecated": null,
+                    "description": "The regexp object rapresent a precompiled regular experssion pattern. The object is created trough regexp(patern).",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "pattern",
+                            "type": "string"
+                        }
+                    ],
+                    "version": "0.0.0"
+                }
+            ],
+            "definition": {
+                "category": "regexp",
+                "deprecated": null,
+                "description": "The regexp object rapresent a precompiled regular experssion pattern. The object is created trough regexp(patern).",
+                "extends": null,
+                "name": "regexp",
+                "notes": [],
+                "side": "shared",
+                "static": false,
+                "version": "0.0.0"
+            },
+            "methods": [
+                {
+                    "declaration": "Array capture(string str, string start)",
+                    "deprecated": null,
+                    "description": "Returns an array of tables containing two indexs(\u201cbegin\u201d and \u201cend\u201d)of the first match of the regular expression in the string str. An array entry is created for each captured sub expressions. If no match occurs returns null. The first element of the returned array(index 0) always contains the complete match.",
+                    "name": "capture",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "str",
+                            "type": "string"
+                        },
+                        {
+                            "default": null,
+                            "description": "The search starts from the index start of the string, if start is omitted the search starts from the beginning of the string.",
+                            "name": "start",
+                            "type": "string"
+                        }
+                    ],
+                    "returns": {
+                        "description": "",
+                        "type": "Array"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "boolean match(string str)",
+                    "deprecated": null,
+                    "description": "Returns a true if the regular expression matches the string str, otherwise returns false.",
+                    "name": "match",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "str",
+                            "type": "string"
+                        }
+                    ],
+                    "returns": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                },
+                {
+                    "declaration": "Array search(string str, string start)",
+                    "deprecated": null,
+                    "description": "Returns an array of tables containing two indexs(\u201cbegin\u201d and \u201cend\u201d)of the first match of the regular expression in the string str. An array entry is created for each captured sub expressions. If no match occurs returns null. The first element of the returned array(index 0) always contains the complete match.",
+                    "name": "search",
+                    "notes": [],
+                    "params": [
+                        {
+                            "default": null,
+                            "description": "",
+                            "name": "str",
+                            "type": "string"
+                        },
+                        {
+                            "default": null,
+                            "description": "The search starts from the index start of the string, if start is omitted the search starts from the beginning of the string.",
+                            "name": "start",
+                            "type": "string"
+                        }
+                    ],
+                    "returns": {
+                        "description": "",
+                        "type": "Array"
+                    },
+                    "static": false,
+                    "version": "0.0.0"
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "constants": [
+        {
+            "category": "constants",
+            "elements": [
+                {
+                    "category": "constants",
+                    "deprecated": null,
+                    "description": "The numeric constant pi (3.141592) is the ratio of the circumference of a circle to its diameter",
+                    "name": "PI",
+                    "side": "shared",
+                    "version": null
+                },
+                {
+                    "category": "constants",
+                    "deprecated": null,
+                    "description": "The maximum value that can be returned by the rand() function",
+                    "name": "RAND_MAX",
+                    "side": "shared",
+                    "version": null
+                }
+            ],
+            "side": "server"
+        }
+    ],
+    "events": [],
+    "functions": [
+        {
+            "category": "functions",
+            "declaration": "int dofile(string path, boolean raiseerror)",
+            "deprecated": null,
+            "description": "Compiles a squirrel script or loads a precompiled one and executes it. When squirrel is compiled in unicode mode the function can handle different character ecodings, UTF8 with and without prefix and UCS-2 prefixed(both big endian an little endian). If the source stream is not prefixed UTF8 ecoding is used as default.",
+            "name": "dofile",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "path",
+                    "type": "string"
+                },
+                {
+                    "default": null,
+                    "description": "if is true, the compiler error handler is invoked in case of a syntax error. If is omitted or set to false, the compiler error handler is not ivoked.",
+                    "name": "raiseerror",
+                    "type": "boolean"
+                }
+            ],
+            "returns": {
+                "description": "returns the value returned by the script or null if no value is returned",
+                "type": "int"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "void loadfile(string path, boolean raiseerror)",
+            "deprecated": null,
+            "description": "Compiles a squirrel script or loads a precompiled one an returns it as as function. When squirrel is compiled in unicode mode the function can handle different character ecodings, UTF8 with and without prefix and UCS-2 prefixed(both big endian an little endian). If the source stream is not prefixed UTF8 ecoding is used as default.",
+            "name": "loadfile",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "path",
+                    "type": "string"
+                },
+                {
+                    "default": null,
+                    "description": "if the optional parameter \u2018raiseerror\u2019 is true, the compiler error handler is invoked in case of a syntax error. If raiseerror is omitted or set to false, the compiler error handler is not ivoked.",
+                    "name": "raiseerror",
+                    "type": "boolean"
+                }
+            ],
+            "returns": null,
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "int writeclosuretofile(string destpath, any closure)",
+            "deprecated": null,
+            "description": "serializes a closure to a bytecode file (destpath). The serialized file can be loaded using loadfile() and dofile().",
+            "name": "writeclosuretofile",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "destpath",
+                    "type": "string"
+                },
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "closure",
+                    "type": "any"
+                }
+            ],
+            "returns": null,
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "int castf2i(float f)",
+            "deprecated": null,
+            "description": "Casts a float to a int",
+            "name": "castf2i",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "f",
+                    "type": "float"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "int"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "int casti2f(int n)",
+            "deprecated": null,
+            "description": "Casts a int to a float",
+            "name": "casti2f",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "n",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "int swap2(int n)",
+            "deprecated": null,
+            "description": "Swap the byte order of a number (like it would be a 16bits integer)",
+            "name": "swap2",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "n",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "int"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "int swap4(int n)",
+            "deprecated": null,
+            "description": "Swap the byte order of an integer",
+            "name": "swap4",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "n",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "int"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "int swapfloat(float f)",
+            "deprecated": null,
+            "description": "Swaps the byteorder of a float",
+            "name": "swapfloat",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "f",
+                    "type": "float"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "int"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float abs(int x)",
+            "deprecated": null,
+            "description": "Returns the absolute value of x as an integer",
+            "name": "abs",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float acos(int x)",
+            "deprecated": null,
+            "description": "Returns the arccosine of x",
+            "name": "acos",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float asin(int x)",
+            "deprecated": null,
+            "description": "Returns the arcsine of x",
+            "name": "asin",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float atan(int x)",
+            "deprecated": null,
+            "description": "Returns the arctangent of x",
+            "name": "atan",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float atan2(int x, int y)",
+            "deprecated": null,
+            "description": "Returns the arctangent of x/y",
+            "name": "atan",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                },
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "y",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float ceil(int x)",
+            "deprecated": null,
+            "description": "Returns a float value representing the smallest integer that is greater than or equal to x",
+            "name": "ceil",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float cos(int x)",
+            "deprecated": null,
+            "description": "Returns the cosine of x",
+            "name": "cos",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float exp(int x)",
+            "deprecated": null,
+            "description": "Returns the exponential value of the float parameter x",
+            "name": "exp",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float fabs(int x)",
+            "deprecated": null,
+            "description": "Returns the absolute value of x as a float",
+            "name": "fabs",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float floor(int x)",
+            "deprecated": null,
+            "description": "Returns a float value representing the largest integer that is less than or equal to x",
+            "name": "floor",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float log(int x)",
+            "deprecated": null,
+            "description": "Returns the natural logarithm of x",
+            "name": "log",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float log10(int x)",
+            "deprecated": null,
+            "description": "Returns the logarithm base-10 of x",
+            "name": "log10",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float pow(int x)",
+            "deprecated": null,
+            "description": "Returns x raised to the power of y",
+            "name": "pow",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "int rand()",
+            "deprecated": null,
+            "description": "Returns a pseudorandom integer in the range 0 to RAND_MAX",
+            "name": "rand",
+            "notes": [],
+            "params": [],
+            "returns": {
+                "description": "",
+                "type": "int"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float sin(int x)",
+            "deprecated": null,
+            "description": "Returns the sine of x",
+            "name": "sin",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float sqrt(int x)",
+            "deprecated": null,
+            "description": "Returns the square root of x",
+            "name": "sqrt",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "int srand(int seed)",
+            "deprecated": null,
+            "description": "Sets the starting point for generating a series of pseudorandom integers",
+            "name": "srand",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "seed",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "int"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float tan(int x)",
+            "deprecated": null,
+            "description": "Returns the tangent of x",
+            "name": "tan",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "x",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "float clock()",
+            "deprecated": null,
+            "description": "Returns a float representing the number of seconds elapsed since the start of the process",
+            "name": "clock",
+            "notes": [],
+            "params": [],
+            "returns": {
+                "description": "",
+                "type": "float"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "[] date(int time, string format)",
+            "deprecated": null,
+            "description": "Returns a table containing a date/time splitted in the slots",
+            "name": "date",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "if omitted the current time is used.",
+                    "name": "time",
+                    "type": "int"
+                },
+                {
+                    "default": null,
+                    "description": "if format can be \u2018l\u2019 local time or \u2018u\u2019 UTC time, if omitted is defaulted as \u2018l\u2019(local time).",
+                    "name": "format",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "[]"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string getenv(int varaname)",
+            "deprecated": null,
+            "description": "Returns a string containing the value of the environment variable varname",
+            "name": "getenv",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "varaname",
+                    "type": "int"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "void remove(string varaname)",
+            "deprecated": null,
+            "description": "Deletes the file specified by path",
+            "name": "remove",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "path",
+                    "type": "string"
+                }
+            ],
+            "returns": null,
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "void rename(string oldname, string newname)",
+            "deprecated": null,
+            "description": "Renames the file or directory specified by oldname to the name given by newname",
+            "name": "rename",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "oldname",
+                    "type": "string"
+                },
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "newname",
+                    "type": "string"
+                }
+            ],
+            "returns": null,
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "void system(string cmd)",
+            "deprecated": null,
+            "description": "Renames the file or directory specified by oldname to the name given by newname",
+            "name": "system",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "cmd",
+                    "type": "string"
+                }
+            ],
+            "returns": null,
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string time()",
+            "deprecated": null,
+            "description": "Returns the number of seconds elapsed since midnight 00:00:00, January 1, 1970. the result of this function can be formatted through the function date()",
+            "name": "time",
+            "notes": [],
+            "params": [],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "boolean endswith(string str, string cmp)",
+            "deprecated": null,
+            "description": "Returns true if the end of the string str matches a the string cmp otherwise returns false",
+            "name": "endswith",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "str",
+                    "type": "string"
+                },
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "cmp",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "boolean"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string escape(string str)",
+            "deprecated": null,
+            "description": "Returns a string with backslashes before characters that need to be escaped(\u201d,a,b,t,n,v,f,r,\\,\u201d,\u2019,0,xnn)",
+            "name": "escape",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "str",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string format(string formatstr, string optional)",
+            "deprecated": null,
+            "description": "Returns a string formatted according formatstr and the optional parameters following it. The format string follows the same rules as the printf family of standard C functions( the \u201c*\u201d is not supported).",
+            "name": "format",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "formatstr",
+                    "type": "string"
+                },
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "optional",
+                    "type": "...string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string rstrip(string str)",
+            "deprecated": null,
+            "description": "Strips white-space-only characters that might appear at the beginning of the given string and returns the new stripped string.",
+            "name": "rstrip",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "str",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string rstrip(string str)",
+            "deprecated": null,
+            "description": "Strips white-space-only characters that might appear at the end of the given string and returns the new stripped string.",
+            "name": "rstrip",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "str",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string split(string str, string separtators)",
+            "deprecated": null,
+            "description": "Returns an array of strings split at each point where a separator character occurs in str. The separator is not returned as part of any array element.",
+            "name": "split",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "str",
+                    "type": "string"
+                },
+                {
+                    "default": null,
+                    "description": "The parameter separators is a string that specifies the characters as to be used for the splitting.",
+                    "name": "separtators",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "boolean startswith(string str, string cmp)",
+            "deprecated": null,
+            "description": "Returns true if the beginning of the string str matches a the string cmp otherwise returns false",
+            "name": "startswith",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "str",
+                    "type": "string"
+                },
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "cmp",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "boolean"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string strip(string str)",
+            "deprecated": null,
+            "description": "Strips white-space-only characters that might appear at the beginning or end of the given string and returns the new stripped string.",
+            "name": "strip",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "str",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "void print(string message)",
+            "deprecated": null,
+            "description": "Prints a message to the console.",
+            "name": "print",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "message",
+                    "type": "string"
+                }
+            ],
+            "returns": null,
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string typeof(any value)",
+            "deprecated": null,
+            "description": "Returns the type of the value as a string.",
+            "name": "typeof",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "value",
+                    "type": "any"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "table getroottable()",
+            "deprecated": null,
+            "description": "Returns the root table.",
+            "name": "getroottable",
+            "notes": [],
+            "params": [],
+            "returns": {
+                "description": "",
+                "type": "table"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "void setroottable(table t)",
+            "deprecated": null,
+            "description": "Sets the root table to the given table.",
+            "name": "setroottable",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "t",
+                    "type": "table"
+                }
+            ],
+            "returns": null,
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "string lstrip(string str)",
+            "deprecated": null,
+            "description": "Removes whitespace characters from the beginning of the string.",
+            "name": "lstrip",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "str",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "string"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "function compilestring(string src)",
+            "deprecated": null,
+            "description": "Compiles and returns function from source string.",
+            "name": "compilestring",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "src",
+                    "type": "string"
+                }
+            ],
+            "returns": {
+                "description": "",
+                "type": "function"
+            },
+            "side": "shared",
+            "version": "0.0.0"
+        },
+        {
+            "category": "functions",
+            "declaration": "void assert(boolean condition, string message)",
+            "deprecated": null,
+            "description": "Raises an error if condition is false.",
+            "name": "assert",
+            "notes": [],
+            "params": [
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "condition",
+                    "type": "boolean"
+                },
+                {
+                    "default": null,
+                    "description": "",
+                    "name": "message",
+                    "type": "string"
+                }
+            ],
+            "returns": null,
+            "side": "shared",
+            "version": "0.0.0"
+        }
+    ]
+}

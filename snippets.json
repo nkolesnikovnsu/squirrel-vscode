@@ -1,0 +1,66 @@
+{
+	"class": {
+		"prefix": "class",
+		"body": ["class $1 ${2:extends ${3:Parent}} {\n\t$0\n}"]
+    },
+    "constructor": {
+		"prefix": "constructor",
+		"body": ["constructor($1){\n\t$0\n}"]
+    },
+    "for": {
+		"prefix": "for",
+		"body": ["for (${1:local i}; ${2:i < 10}; ${3:i++}) {\n\t$0\n}"]
+    },
+    "while": {
+		"prefix": "while",
+		"body": ["while (${1:true}) {\n\t$0\n}"]
+    },
+    "do-while": {
+		"prefix": "do-while",
+		"body": ["do {\n\t$0\n} while (${1:true})"]
+    },
+    "foreach": {
+		"prefix": "foreach",
+		"body": ["foreach (${1:value} in ${2:table}) {\n\t$0\n}"]
+    },
+    "foreach-index": {
+		"prefix": "foreach-index",
+		"body": ["foreach (${1:i}, ${2:value} in ${3:table}) {\n\t$0\n}"]
+    },
+    "function": {
+		"prefix": "function",
+		"body": ["function $1($2) {\n\t$0\n}"]
+    },
+    "if": {
+		"prefix": "if",
+		"body": ["if (${1:true}) {\n\t${0}\n}"]
+    },
+    "local": {
+		"prefix": "local",
+		"body": ["local $0"]
+    },
+    "enum": {
+		"prefix": "enum",
+		"body": ["enum $1 {\n\t$0\n}"]
+    },
+    "typeof": {
+		"prefix": "typeof",
+		"body": ["typeof"]
+    },
+    "switch": {
+		"prefix": "switch",
+		"body": ["switch (${1:true}) {\n\tcase ${2:1}:\n\t\tbreak;\n\tcase ${0:2}:\n\t\tbreak;\n\tdefault:\n\t\tbreak;\n}"]
+    },
+    "try-catch": {
+		"prefix": "try-catch",
+		"body": ["try {\n\t$2\n} catch (${1:exception}){\n\t$0\n}"]
+    },
+    "break": {
+		"prefix": "break",
+		"body": ["break"]
+    },
+    "case": {
+		"prefix": "case",
+		"body": ["case"]
+    }
+}
