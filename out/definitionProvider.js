@@ -9,12 +9,10 @@ class SquirrelDefinitionProvider {
             return undefined;
         }
         const symbol = document.getText(wordRange);
-        // We are looking for the definition in the current file.
         const localDefinition = this.findDefinitionInDocument(document, symbol, position);
         if (localDefinition) {
             return localDefinition;
         }
-        // We are looking for the definition in other files.
         const workspaceDefinition = await this.findDefinitionInWorkspace(document, symbol);
         if (workspaceDefinition) {
             return workspaceDefinition;

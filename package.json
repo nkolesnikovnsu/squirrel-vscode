@@ -1,9 +1,9 @@
 {
-    "name": "vscode-squirrel-lang",
+    "name": "vscode-squirrel",
     "displayName": "Squirrel Language Highlighting",
     "description": "Squirrel Language Highlighting with Go to Definition support",
     "version": "0.0.14",
-    "publisher": "monkeygroover",
+    "publisher": "nikitakolesnikov",
     "icon": "simple_nut.png",
     "engines": {
         "vscode": "^1.60.0"
@@ -59,6 +59,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/monkeygroover/vscode-squirrel-lang.git"
+        "url": "https://github.com/nkolesnikovnsu/squirrel-vscode.git"
     }
 }
