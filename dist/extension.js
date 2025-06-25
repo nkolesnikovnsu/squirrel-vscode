@@ -2400,43 +2400,43 @@ function activate(context) {
         }));
     }
 
-    if (configuration.get('UnreachableCode')) {
-        function highlightUnreachable(editor = vscode.window.activeTextEditor) {
-            const diagnostics = UnreachableCode.analyzeUnreachableCode(editor.document);
-            const decorationsArray = diagnostics.map(d => ({
-                range: d.range,
-                hoverMessage: "Unreachable code detected"
-            }));
-            editor.setDecorations(decorationType, decorationsArray);
-        }
+    // if (configuration.get('UnreachableCode')) {
+    //     function highlightUnreachable(editor = vscode.window.activeTextEditor) {
+    //         const diagnostics = UnreachableCode.analyzeUnreachableCode(editor.document);
+    //         const decorationsArray = diagnostics.map(d => ({
+    //             range: d.range,
+    //             hoverMessage: "Unreachable code detected"
+    //         }));
+    //         editor.setDecorations(decorationType, decorationsArray);
+    //     }
 
-        context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(editor => {
-            activeEditor = editor;
-            if (editor) {
-                if (editor.document.languageId === "squirrel") {
-                    highlightUnreachable(editor)
-                }
-            }
-        }, null, context.subscriptions))
-        context.subscriptions.push(vscode.workspace.onDidChangeTextDocument(event => {
-            if (timeout) {
-                clearTimeout(timeout);
-                timeout = undefined;
-            }
-            timeout = setTimeout(function () {
-                if (event.document.languageId === "squirrel") {
-                    if (activeEditor && event.document === activeEditor.document) {
-                        highlightUnreachable(activeEditor)
-                    }
-                }
-            }, 300)
-        }, null, context.subscriptions));
-        if (activeEditor) {
-            if (activeEditor.document.languageId === "squirrel") {
-                highlightUnreachable(activeEditor)
-            }
-        }
-    }
+    //     context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(editor => {
+    //         activeEditor = editor;
+    //         if (editor) {
+    //             if (editor.document.languageId === "squirrel") {
+    //                 highlightUnreachable(editor)
+    //             }
+    //         }
+    //     }, null, context.subscriptions))
+    //     context.subscriptions.push(vscode.workspace.onDidChangeTextDocument(event => {
+    //         if (timeout) {
+    //             clearTimeout(timeout);
+    //             timeout = undefined;
+    //         }
+    //         timeout = setTimeout(function () {
+    //             if (event.document.languageId === "squirrel") {
+    //                 if (activeEditor && event.document === activeEditor.document) {
+    //                     highlightUnreachable(activeEditor)
+    //                 }
+    //             }
+    //         }, 300)
+    //     }, null, context.subscriptions));
+    //     if (activeEditor) {
+    //         if (activeEditor.document.languageId === "squirrel") {
+    //             highlightUnreachable(activeEditor)
+    //         }
+    //     }
+    // }
 
     vscode.workspace.onDidChangeConfiguration(event => {
         let affected = event.affectsConfiguration("vscode-squirrel");
@@ -2600,11 +2600,21 @@ let JSDOCText = [];
 
 exports.Parse = function (fileName) {
     console.log('[index.js] Parse для', fileName);
-    const text = (fileName === vscode.window.activeTextEditor.document.fileName)
-        ? vscode.window.activeTextEditor.document.getText()
-        : fs.readFileSync(fileName, 'utf8');
+    
+    // Проверяем наличие активного редактора
+    const activeEditor = vscode.window.activeTextEditor;
+    
+    let text;
+    if (activeEditor && activeEditor.document.fileName === fileName) {
+        // Если есть активный редактор и он открытый файл совпадает с нужным
+        text = activeEditor.document.getText();
+    } else {
+        // Иначе читаем файл напрямую через fs
+        text = fs.readFileSync(fileName, 'utf8');
+    }
 
-    if (text.length > 500000) { // например, 500К символов
+    // Остальной ваш код обработки текста...
+    if (text.length > 500000) {
         console.warn('[Parse] Файл слишком большой, парсинг пропущен:', fileName);
         return [];
     }

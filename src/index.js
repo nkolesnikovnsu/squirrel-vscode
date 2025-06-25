@@ -14,18 +14,21 @@ let JSDOCText = [];
 
 exports.Parse = function (fileName) {
     console.log('[index.js] Parse для', fileName);
+    
+    // Проверяем наличие активного редактора
+    const activeEditor = vscode.window.activeTextEditor;
+    
     let text;
-    if (
-        vscode.window.activeTextEditor &&
-        vscode.window.activeTextEditor.document &&
-        fileName === vscode.window.activeTextEditor.document.fileName
-    ) {
-        text = vscode.window.activeTextEditor.document.getText();
+    if (activeEditor && activeEditor.document.fileName === fileName) {
+        // Если есть активный редактор и он открытый файл совпадает с нужным
+        text = activeEditor.document.getText();
     } else {
+        // Иначе читаем файл напрямую через fs
         text = fs.readFileSync(fileName, 'utf8');
     }
 
-    if (text.length > 500000) { // например, 500К символов
+    // Остальной ваш код обработки текста...
+    if (text.length > 500000) {
         console.warn('[Parse] Файл слишком большой, парсинг пропущен:', fileName);
         return [];
     }
