@@ -1,0 +1,64 @@
+{
+    "name": "vscode-squirrel-lang",
+    "displayName": "Squirrel Language Highlighting",
+    "description": "Squirrel Language Highlighting with Go to Definition support",
+    "version": "0.0.14",
+    "publisher": "monkeygroover",
+    "icon": "simple_nut.png",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords" : [
+        "electric imp", "electricimp", "imp", "squirrel", "nut"
+    ],
+    "main": "./out/extension.js",
+    "activationEvents": [
+        "onLanguage:squirrel"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "squirrel",
+            "aliases": ["Squirrel", "squirrel"],
+            "extensions": ["nut"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "squirrel",
+            "scopeName": "source.nut",
+            "path": "./syntaxes/Squirrel.tmLanguage.json"
+        }],
+        "commands": [
+            {
+                "command": "squirrel.goToDefinition",
+                "title": "Go to Definition",
+                "category": "Squirrel"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "editorLangId == squirrel",
+                    "command": "squirrel.goToDefinition",
+                    "group": "navigation"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.60.0",
+        "@types/node": "^16.0.0",
+        "typescript": "^4.5.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/monkeygroover/vscode-squirrel-lang.git"
+    }
+}
